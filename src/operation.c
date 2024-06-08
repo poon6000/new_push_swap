@@ -1,0 +1,95 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operation.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: intrauser <intrauser@student.42bangkok.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/11 14:15:45 by nsangnga          #+#    #+#             */
+/*   Updated: 2024/05/16 17:11:03 by intrauser        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+
+void	swap(t_list *stack)
+{
+	t_data	*first;
+	t_data	*second;
+	int		temp;
+
+	if (stack && stack->next)
+	{
+		first = (t_data *)stack->content;
+		second = (t_data *)stack->next->content;
+		temp = first->number;
+		first->number = second->number;
+		second->number = temp;
+	}
+}
+
+void	push(t_list **stack, t_data *data)
+{
+	t_list	*new_node;
+
+	new_node = ft_lstnew(data);
+	if (!new_node)
+	{
+		free(data);
+		exit(EXIT_FAILURE);
+	}
+	ft_lstadd_front(stack, new_node);
+}
+
+
+t_data	*pop(t_list **stack)
+{
+	t_data	*top_data;
+	t_list	*top_node;
+
+	if (!*stack)
+		exit(EXIT_FAILURE);
+	top_node = *stack;
+	top_data = (t_data *)top_node->content;
+	*stack = top_node->next;
+	free(top_node);
+	return (top_data);
+}
+
+void	rotate(t_list **stack)
+{
+	t_list	*first;
+	t_list	*last;
+
+	if (*stack && (*stack)->next)
+	{
+		first = *stack;
+		last = *stack;
+		while (last->next)
+			last = last->next;
+		*stack = first->next;
+		first->next = NULL;
+		last->next = first;
+	}
+}
+
+
+void	reverse_rotate(t_list **stack)
+{
+	t_list	*last;
+	t_list	*second_last;
+
+	if (*stack && (*stack)->next)
+	{
+		last = *stack;
+		second_last = NULL;
+		while (last->next)
+		{
+			second_last = last;
+			last = last->next;
+		}
+		second_last->next = NULL;
+		last->next = *stack;
+		*stack = last;
+	}
+}
