@@ -6,7 +6,7 @@
 /*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:28:29 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/09 17:15:31 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/06/09 17:40:50 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,10 +147,11 @@ void	push_smallest_to_b(t_list **stack_a, t_list **stack_b)
 void	sort_five_elements(t_list **stack_a, t_list **stack_b)
 {
 	push_smallest_to_b(stack_a, stack_b);
-	if (!is_stack_sorted(*stack_a))
+	if (is_stack_sorted(*stack_a))
 	{
-		push_smallest_to_b(stack_a, stack_b);
+		pa(stack_b, stack_a);
 		log_operation("pb", stack_a, stack_b); //debug
+		return ;
 	}
 	sort_up_to_three_elements(stack_a);
 	pa(stack_b, stack_a);
