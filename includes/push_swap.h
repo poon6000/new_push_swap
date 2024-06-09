@@ -6,7 +6,7 @@
 /*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 20:20:54 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/08 19:51:15 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/06/09 14:49:30 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <stdio.h>
+
 
 // Stack
 typedef struct s_data

@@ -6,7 +6,7 @@
 /*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 15:13:45 by intrauser         #+#    #+#             */
-/*   Updated: 2024/05/18 15:32:30 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/06/09 15:00:06 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	ss(t_list *stack_a, t_list *stack_b)
 
 void	pa(t_list **stack_b, t_list **stack_a)
 {
-	printf("pa\n");
 	if (*stack_b)
 		push(stack_a, pop(stack_b));
+	ft_printf("pa\n");
 }
 
 void	pb(t_list **stack_a, t_list **stack_b)
 {
-	printf("pb\n");
 	if (*stack_a)
 		push(stack_b, pop(stack_a));
+	ft_printf("pb\n");
 }
