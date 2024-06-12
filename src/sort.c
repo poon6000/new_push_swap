@@ -6,50 +6,45 @@
 /*   By: intrauser <intrauser@student.42bangkok.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:28:29 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/11 19:57:22 by intrauser        ###   ########.fr       */
+/*   Updated: 2024/06/12 17:52:28 by intrauser        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-//debug
-// void print_stack_columns(t_list *stack_a, t_list *stack_b)
+// void print_stacks(t_list *stack_a, t_list *stack_b)
 // {
-//     t_list *current_a = stack_a;
-//     t_list *current_b = stack_b;
+//     t_data *data_a;
+//     t_data *data_b;
 
-//     printf("Stack A              Stack B\n");
-//     printf("Number Index         Number Index\n");
+//     printf("Stack A:\t\tStack B:\n");
 
-//     while (current_a || current_b)
+//     while (stack_a || stack_b) // Loop until both stacks are empty
 //     {
-//         if (current_a)
+//         // Print Stack A elements
+//         if (stack_a) 
 //         {
-//             t_data *data_a = (t_data *)current_a->content;
-//             printf("%6d %5d", data_a->number, data_a->index);
-//             current_a = current_a->next;
+//             data_a = (t_data *)stack_a->content;
+//             printf("{%d, %d}\t\t", data_a->index, data_a->number);
+//             stack_a = stack_a->next;
 //         }
 //         else
 //         {
-//             printf("             ");
+//             printf("\t\t");  // Add indentation if stack_a is empty
 //         }
 
-//         if (current_b)
+//         // Print Stack B elements
+//         if (stack_b)
 //         {
-//             t_data *data_b = (t_data *)current_b->content;
-//             printf("         %6d %5d", data_b->number, data_b->index);
-//             current_b = current_b->next;
+//             data_b = (t_data *)stack_b->content;
+//             printf("{%d, %d}\n", data_b->index, data_b->number);
+//             stack_b = stack_b->next;
 //         }
-
-//         printf("\n");
+//         else
+//         {
+//             printf("\n");  // Add newline if stack_b is empty
+//         }
 //     }
-// }
-
-// void log_operation(const char *op, t_list **stack_a, t_list **stack_b)
-// {
-//     printf("Operation: %s\n", op);
-//     print_stack_columns(*stack_a, *stack_b);
-//     printf("\n");
 // }
 
 //debug
@@ -89,7 +84,6 @@ void	sort_three_elements(t_list **stack)
 
 	update_pointers(*stack, &data_first, &data_second, &data_third);
 	handle_three_elements(stack, data_first, data_second, data_third);
-
 }
 
 void	sort_up_to_three_elements(t_list **stack)
@@ -136,30 +130,16 @@ void	push_smallest_to_b(t_list **stack_a, t_list **stack_b)
 			i++;
 		}
 	}
-	if (is_stack_sorted(*stack_a))
-	{
-		pa(stack_b, stack_a);
-		return ;
-	}
 	pb(stack_a, stack_b);
 }
+
 void	sort_five_elements(t_list **stack_a, t_list **stack_b)
 {
 	push_smallest_to_b(stack_a, stack_b);
 	if (!is_stack_sorted(*stack_a))
-	{
-		if (is_stack_sorted(*stack_a))
-		{
-			pa(stack_b, stack_a);
-			return ;
-		}
-		else
-			push_smallest_to_b(stack_a, stack_b);
-	}
+		push_smallest_to_b(stack_a, stack_b);
 	if (!is_stack_sorted(*stack_a))
-	{
 		sort_up_to_three_elements(stack_a);
+	while (*stack_b)
 		pa(stack_b, stack_a);
-		pa(stack_b, stack_a);
-	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation_3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: intrauser <intrauser@student.42bangkok.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 15:15:07 by intrauser         #+#    #+#             */
-/*   Updated: 2024/06/09 15:00:40 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:53:12 by intrauser        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ra(t_list **stack)
 	rotate(stack);
 	ft_printf("ra\n");
 }
-
 
 void	rb(t_list **stack_b)
 {

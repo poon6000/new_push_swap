@@ -6,7 +6,7 @@
 /*   By: intrauser <intrauser@student.42bangkok.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 14:15:45 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/05/16 17:11:03 by intrauser        ###   ########.fr       */
+/*   Updated: 2024/06/12 17:53:04 by intrauser        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@ void	swap(t_list *stack)
 {
 	t_data	*first;
 	t_data	*second;
-	int		temp;
+	int		temp_number;
+	int		temp_index;
 
 	if (stack && stack->next)
 	{
 		first = (t_data *)stack->content;
 		second = (t_data *)stack->next->content;
-		temp = first->number;
+		temp_number = first->number;
 		first->number = second->number;
-		second->number = temp;
+		second->number = temp_number;
+		temp_index = first->index;
+		first->index = second->index;
+		second->index = temp_index;
 	}
 }
 
@@ -40,7 +44,6 @@ void	push(t_list **stack, t_data *data)
 	}
 	ft_lstadd_front(stack, new_node);
 }
-
 
 t_data	*pop(t_list **stack)
 {
@@ -72,7 +75,6 @@ void	rotate(t_list **stack)
 		last->next = first;
 	}
 }
-
 
 void	reverse_rotate(t_list **stack)
 {
