@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: intrauser <intrauser@student.42bangkok.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 20:20:54 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/09 14:49:30 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/06/14 23:52:32 by intrauser        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include "../libft/ft_printf.h"
 # include <stdlib.h>
 # include <stdbool.h>
-# include <stdio.h>
-
 
 // Stack
 typedef struct s_data
