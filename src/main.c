@@ -6,34 +6,36 @@
 /*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:28:25 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/09 14:48:15 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/06/22 17:11:35 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	print_error_and_exit(char **nbr, int j)
+void	print_error_and_exit(char **nbr, int curr_idx, t_list **stack_a)
 {
-	free_array(nbr, j);
+	free_array(nbr, curr_idx + 1);
+	ft_lstclear(stack_a, free);
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
 
-void	add_number_to_stack(char *num_str, t_list **stack_a, char **nbr, int j)
+void	add_number_to_stack(char *num_str, t_list **stack_a, char **nbr, \
+int curr_idx)
 {
 	t_data		*new;
 	long long	num;
 
 	if (!is_valid_digit(num_str))
-		print_error_and_exit(nbr, j);
+		print_error_and_exit(nbr, curr_idx, stack_a);
 	new = malloc(sizeof(t_data));
 	if (!new)
-		print_error_and_exit(nbr, j);
+		print_error_and_exit(nbr, curr_idx, stack_a);
 	num = ft_atoll(num_str);
 	if (num > INT_MAX || num < INT_MIN)
 	{
 		free(new);
-		print_error_and_exit(nbr, j);
+		print_error_and_exit(nbr, curr_idx, stack_a);
 	}
 	new->number = (int)num;
 	new->index = 0;
@@ -44,22 +46,22 @@ void	init_stack(int argc, char **argv, t_list **stack_a)
 {
 	char	**nbr;
 	int		i;
-	int		j;
+	int		curr_idx;
 
 	i = 1;
 	while (i < argc)
 	{
 		check_empty_argument(argv[i]);
 		nbr = ft_split(argv[i], ' ');
-		j = 0;
-		while (nbr[j])
+		curr_idx = 0;
+		while (nbr[curr_idx])
 		{
-			if (nbr[j][0] == '\0')
-				print_error_and_exit(nbr, j);
-			add_number_to_stack(nbr[j], stack_a, nbr, j);
-			j++;
+			if (nbr[curr_idx][0] == '\0')
+				print_error_and_exit(nbr, curr_idx, stack_a);
+			add_number_to_stack(nbr[curr_idx], stack_a, nbr, curr_idx);
+			curr_idx++;
 		}
-		free_array(nbr, j);
+		free_array(nbr, curr_idx);
 		i++;
 	}
 	add_index(*stack_a);
@@ -73,10 +75,7 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc <= 1)
-	{
-		ft_putstr_fd("Error\n", 2);
 		return (EXIT_FAILURE);
-	}
 	init_stack(argc, argv, &stack_a);
 	check_dup(stack_a);
 	check_int_range(stack_a);

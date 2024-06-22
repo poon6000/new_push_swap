@@ -1,6 +1,6 @@
 # Project Variables
 NAME		= push_swap
-CC			= gcc
+CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -I$(INCDIR) -I$(LIBDIR)
 RM			= rm -f
 
@@ -24,6 +24,9 @@ SRC			= $(SRCDIR)/checker.c \
 OBJ 		= $(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 LIBFT		= $(LIBDIR)/libft.a
 
+# Header Files
+HEADERS		= $(INCDIR)/push_swap.h \
+			  $(LIBDIR)/libft.h \
 # Default rule
 all:		$(LIBFT) $(NAME)
 
@@ -36,7 +39,7 @@ $(NAME): $(OBJ)
 			$(CC) $(CFLAGS) $(OBJ) -L$(LIBDIR) -lft -o $(NAME)
 
 # Rule for compiling object files
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADERS) Makefile
 			mkdir -p $(OBJDIR)
 			$(CC) $(CFLAGS) -c $< -o $@
 

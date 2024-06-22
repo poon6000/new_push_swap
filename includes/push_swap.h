@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: intrauser <intrauser@student.42bangkok.    +#+  +:+       +#+        */
+/*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 20:20:54 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/14 23:52:32 by intrauser        ###   ########.fr       */
+/*   Updated: 2024/06/22 17:12:44 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "../libft/ft_printf.h"
 # include <stdlib.h>
 # include <stdbool.h>
+# include <stdio.h>
 
 // Stack
 typedef struct s_data
@@ -55,8 +56,9 @@ int		ft_max(int a, int b);
 int		ft_abs(int x);
 void	add_index(t_list *head);
 int		find_index(t_list *head, int v);
-void	add_number_to_stack(char *num_str, t_list **stack_a, char **nbr, int j);
-void	print_error_and_exit(char **nbr, int j);
+void	add_number_to_stack(char *num_str, t_list **stack_a, \
+		char **nbr, int curr_idx);
+void	print_error_and_exit(char **nbr, int j, t_list **stack_a);
 void	update_pointers(t_list *stack, t_data **data_first, \
 		t_data **data_second, t_data **data_third);
 int		find_smallest_index(t_list *stack);
