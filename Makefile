@@ -13,10 +13,10 @@ OBJDIR		= obj
 # Source and Object Files
 SRC			= $(SRCDIR)/checker.c \
 			  $(SRCDIR)/main.c \
-			  $(SRCDIR)/operation.c \
-			  $(SRCDIR)/operation_2.c \
-			  $(SRCDIR)/operation_3.c \
-			  $(SRCDIR)/operation_4.c \
+			  $(SRCDIR)/stack_instructions.c \
+			  $(SRCDIR)/stack_reverse.c \
+			  $(SRCDIR)/stack_rotate.c \
+			  $(SRCDIR)/stack_ultis.c \
 			  $(SRCDIR)/sort.c \
 			  $(SRCDIR)/radix_sort.c \
 			  $(SRCDIR)/utils.c
