@@ -1,7 +1,7 @@
 # Project Variables
 NAME		= push_swap
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -I$(INCDIR) -I$(LIBDIR)
+CFLAGS		= -Wall -Wextra -Werror -I$(INCDIR) -I$(LIBDIR) -g
 RM			= rm -f
 
 # Directories
@@ -32,10 +32,11 @@ all:		$(LIBFT) $(NAME)
 
 # Compile libft
 $(LIBFT):
-			@$(MAKE) -C $(LIBDIR)
+			$(MAKE) -C $(LIBDIR)
 
 # Rule for building the target executable
 $(NAME): $(OBJ)
+			make -C $(LIBDIR)
 			$(CC) $(CFLAGS) $(OBJ) -L$(LIBDIR) -lft -o $(NAME)
 
 # Rule for compiling object files

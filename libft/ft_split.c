@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: intrauser <intrauser@student.42bangkok.    +#+  +:+       +#+        */
+/*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:44:38 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/25 16:43:13 by intrauser        ###   ########.fr       */
+/*   Updated: 2024/06/29 15:51:15 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,42 @@ static char	*get_next_word(const char **s, char c)
 	return (ft_substr(start, 0, len));
 }
 
-void	free_array(char **arr, size_t len)
+// free_array(char **arr, index + 1)
+// void	free_array(char **arr, size_t len)
+// {
+// 	size_t	i;
+
+// 	i = 0;
+// 	while (i < len)
+// 	{
+// 		free(arr[i]);
+// 		i++;
+// 	}
+// 	i = len;
+// 	free(arr);
+// }
+
+// free_array(char **arr, index)
+// void	free_narray(char **arr, size_t index)
+// {
+// 	size_t	i;
+
+// 	i = 0;
+// 	while (i <= index)
+// 	{
+// 		free(arr[i]);
+// 		i++;
+// 	}
+// 	i = index;
+// 	free(arr);
+// }
+
+void	free_array(char **arr)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < len)
+	while (arr[i])
 	{
 		free(arr[i]);
 		i++;
@@ -77,7 +107,7 @@ char	**ft_split(const char *s, char c)
 		result[i] = get_next_word(&s, c);
 		if (!result[i])
 		{
-			free_array(result, i);
+			free_array(result);
 			return (NULL);
 		}
 		i++;

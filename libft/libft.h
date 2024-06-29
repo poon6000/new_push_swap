@@ -6,7 +6,7 @@
 /*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:46:25 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/05/18 17:52:09 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/06/29 15:24:46 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,6 @@ int			ft_putu(unsigned int n);
 int			ft_putx(unsigned int n);
 int			ft_put_upperx(unsigned int n);
 int			ft_count_words(const char *s, char c);
-void		free_array(char **arr, size_t len);
+void		free_array(char **arr);
 
 #endif

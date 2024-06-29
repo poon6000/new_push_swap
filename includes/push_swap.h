@@ -6,7 +6,7 @@
 /*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 20:20:54 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/29 14:15:38 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/06/29 15:28:43 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ int		ft_max(int a, int b);
 int		ft_abs(int x);
 void	add_index(t_list *head);
 int		find_index(t_list *head, int v);
-void	cleanup_and_exit(char **nbr, int j, t_list **stack_a);
+void	cleanup_and_exit(char **nbr, t_list **stack_a);
 void	add_number_to_stack(char *num_str, t_list **stack_a, \
-		char **nbr, int curr_idx);
+		char **nbr);
 void	update_pointers(t_list *stack, t_data **data_first, \
 		t_data **data_second, t_data **data_third);
 int		find_smallest_index(t_list *stack);

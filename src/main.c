@@ -6,36 +6,35 @@
 /*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:28:25 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/29 14:23:55 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/06/29 15:28:33 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	cleanup_and_exit(char **nbr, int curr_idx, t_list **stack_a)
+void	cleanup_and_exit(char **nbr, t_list **stack_a)
 {
-	free_array(nbr, curr_idx + 1);
+	free_array(nbr);
 	ft_lstclear(stack_a, free);
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
 
-void	add_number_to_stack(char *num_str, t_list **stack_a, char **nbr, \
-int curr_idx)
+void	add_number_to_stack(char *num_str, t_list **stack_a, char **nbr)
 {
 	t_data		*new;
 	long long	num;
 
 	if (!is_valid_digit(num_str))
-		cleanup_and_exit(nbr, curr_idx, stack_a);
+		cleanup_and_exit(nbr, stack_a);
 	new = malloc(sizeof(t_data));
 	if (!new)
-		cleanup_and_exit(nbr, curr_idx, stack_a);
+		cleanup_and_exit(nbr, stack_a);
 	num = ft_atoll(num_str);
 	if (num > INT_MAX || num < INT_MIN)
 	{
 		free(new);
-		cleanup_and_exit(nbr, curr_idx, stack_a);
+		cleanup_and_exit(nbr, stack_a);
 	}
 	new->number = (int)num;
 	new->index = 0;
@@ -53,11 +52,11 @@ void	process_argument(char *arg, t_list **stack_a)
 	while (nbr[curr_idx])
 	{
 		if (nbr[curr_idx][0] == '\0')
-			cleanup_and_exit(nbr, curr_idx, stack_a);
-		add_number_to_stack(nbr[curr_idx], stack_a, nbr, curr_idx);
+			cleanup_and_exit(nbr, stack_a);
+		add_number_to_stack(nbr[curr_idx], stack_a, nbr);
 		curr_idx++;
 	}
-	free_array(nbr, curr_idx);
+	free_array(nbr);
 }
 
 void	init_stack(int argc, char **argv, t_list **stack_a)
