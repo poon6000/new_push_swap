@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: intrauser <intrauser@student.42bangkok.    +#+  +:+       +#+        */
+/*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 20:20:54 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/25 15:57:25 by intrauser        ###   ########.fr       */
+/*   Updated: 2024/06/29 14:15:38 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,14 @@ void	sort_five_elements(t_list **stack_a, t_list **stack_b);
 void	radix_sort(t_list **stack_a, t_list **stack_b);
 
 // Utils functions
+void	init_stack(int argc, char **argv, t_list **stack_a);
 int		ft_max(int a, int b);
 int		ft_abs(int x);
 void	add_index(t_list *head);
 int		find_index(t_list *head, int v);
+void	cleanup_and_exit(char **nbr, int j, t_list **stack_a);
 void	add_number_to_stack(char *num_str, t_list **stack_a, \
 		char **nbr, int curr_idx);
-void	cleanup_and_exit(char **nbr, int j, t_list **stack_a);
 void	update_pointers(t_list *stack, t_data **data_first, \
 		t_data **data_second, t_data **data_third);
 int		find_smallest_index(t_list *stack);

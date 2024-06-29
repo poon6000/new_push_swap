@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: intrauser <intrauser@student.42bangkok.    +#+  +:+       +#+        */
+/*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:28:25 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/25 16:46:04 by intrauser        ###   ########.fr       */
+/*   Updated: 2024/06/29 14:23:55 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,61 @@ int curr_idx)
 	ft_lstadd_back(stack_a, ft_lstnew(new));
 }
 
-void	init_stack(int argc, char **argv, t_list **stack_a)
+void	process_argument(char *arg, t_list **stack_a)
 {
 	char	**nbr;
-	int		i;
 	int		curr_idx;
+
+	check_empty_argument(arg);
+	nbr = ft_split(arg, ' ');
+	curr_idx = 0;
+	while (nbr[curr_idx])
+	{
+		if (nbr[curr_idx][0] == '\0')
+			cleanup_and_exit(nbr, curr_idx, stack_a);
+		add_number_to_stack(nbr[curr_idx], stack_a, nbr, curr_idx);
+		curr_idx++;
+	}
+	free_array(nbr, curr_idx);
+}
+
+void	init_stack(int argc, char **argv, t_list **stack_a)
+{
+	int		i;
 
 	i = 1;
 	while (i < argc)
 	{
-		check_empty_argument(argv[i]);
-		nbr = ft_split(argv[i], ' ');
-		curr_idx = 0;
-		while (nbr[curr_idx])
-		{
-			if (nbr[curr_idx][0] == '\0')
-				cleanup_and_exit(nbr, curr_idx, stack_a);
-			add_number_to_stack(nbr[curr_idx], stack_a, nbr, curr_idx);
-			curr_idx++;
-		}
-		free_array(nbr, curr_idx);
+		process_argument(argv[i], stack_a);
 		i++;
 	}
 	add_index(*stack_a);
 }
+
+// void	init_stack(int argc, char **argv, t_list **stack_a)
+// {
+// 	char	**nbr;
+// 	int		i;
+// 	int		curr_idx;
+
+// 	i = 1;
+// 	while (i < argc)
+// 	{
+// 		check_empty_argument(argv[i]);
+// 		nbr = ft_split(argv[i], ' ');
+// 		curr_idx = 0;
+// 		while (nbr[curr_idx])
+// 		{
+// 			if (nbr[curr_idx][0] == '\0')
+// 				cleanup_and_exit(nbr, curr_idx, stack_a);
+// 			add_number_to_stack(nbr[curr_idx], stack_a, nbr, curr_idx);
+// 			curr_idx++;
+// 		}
+// 		free_array(nbr, curr_idx);
+// 		i++;
+// 	}
+// 	add_index(*stack_a);
+// }
 
 int	main(int argc, char **argv)
 {
