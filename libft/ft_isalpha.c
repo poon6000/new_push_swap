@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsangnga <nsangnga@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:41:38 by nsangnga          #+#    #+#             */
-/*   Updated: 2023/10/22 15:20:35 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/07/06 14:12:37 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_isalpha(int c)
 	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
 // {
-// 	if ((c >= 'a' && c <= 'z') \
+// 	if ((c >= 'a' && c <= 'z')
 // 		|| (c >= 'A' && c <= 'Z'))
 // 		return (1);
 // 	return (0);

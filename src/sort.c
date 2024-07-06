@@ -3,76 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: intrauser <intrauser@student.42bangkok.    +#+  +:+       +#+        */
+/*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:28:29 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/12 17:52:28 by intrauser        ###   ########.fr       */
+/*   Updated: 2024/07/06 14:37:52 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// void print_stacks(t_list *stack_a, t_list *stack_b)
-// {
-//     t_data *data_a;
-//     t_data *data_b;
-
-//     printf("Stack A:\t\tStack B:\n");
-
-//     while (stack_a || stack_b) // Loop until both stacks are empty
-//     {
-//         // Print Stack A elements
-//         if (stack_a) 
-//         {
-//             data_a = (t_data *)stack_a->content;
-//             printf("{%d, %d}\t\t", data_a->index, data_a->number);
-//             stack_a = stack_a->next;
-//         }
-//         else
-//         {
-//             printf("\t\t");  // Add indentation if stack_a is empty
-//         }
-
-//         // Print Stack B elements
-//         if (stack_b)
-//         {
-//             data_b = (t_data *)stack_b->content;
-//             printf("{%d, %d}\n", data_b->index, data_b->number);
-//             stack_b = stack_b->next;
-//         }
-//         else
-//         {
-//             printf("\n");  // Add newline if stack_b is empty
-//         }
-//     }
-// }
-
-//debug
-void	handle_three_elements(t_list **stack, t_data *data_first, \
-t_data *data_second, t_data *data_third)
+void	handle_three_elements(t_list **stack, int first, int second, int third)
 {
-	if (data_first->index > data_second->index && data_first->index \
-	< data_third->index)
+	if (first > second && first < third)
 		sa(*stack);
-	else if (data_first->index > data_second->index && data_second->index \
-	> data_third->index)
+	else if (first > second && second > third)
 	{
 		sa(*stack);
 		rra(stack);
 	}
-	else if (data_first->index > data_second->index && data_second->index \
-	< data_third->index && data_first->index > data_third->index)
+	else if (first > second && second < third && first > third)
 	{
 		ra(stack);
 	}
-	else if (data_first->index < data_second->index && data_second->index \
-	> data_third->index && data_first->index < data_third->index)
+	else if (first < second && second > third && first < third)
 	{
 		sa(*stack);
 		ra(stack);
 	}
-	else if (data_first->index < data_second->index && data_second->index \
-	> data_third-> index && data_first->index > data_third->index)
+	else if (first < second && second > third && first > third)
 		rra(stack);
 }
 
@@ -83,7 +41,8 @@ void	sort_three_elements(t_list **stack)
 	t_data	*data_third;
 
 	update_pointers(*stack, &data_first, &data_second, &data_third);
-	handle_three_elements(stack, data_first, data_second, data_third);
+	handle_three_elements(stack, data_first->index, data_second->index, \
+	data_third->index);
 }
 
 void	sort_up_to_three_elements(t_list **stack)
@@ -143,3 +102,40 @@ void	sort_five_elements(t_list **stack_a, t_list **stack_b)
 	while (*stack_b)
 		pa(stack_b, stack_a);
 }
+
+
+//debug
+// void print_stacks(t_list *stack_a, t_list *stack_b)
+// {
+//     t_data *data_a;
+//     t_data *data_b;
+
+//     printf("Stack A:\t\tStack B:\n");
+
+//     while (stack_a || stack_b) // Loop until both stacks are empty
+//     {
+//         // Print Stack A elements
+//         if (stack_a) 
+//         {
+//             data_a = (t_data *)stack_a->content;
+//             printf("{%d, %d}\t\t", data_a->index, data_a->number);
+//             stack_a = stack_a->next;
+//         }
+//         else
+//         {
+//             printf("\t\t");  // Add indentation if stack_a is empty
+//         }
+
+//         // Print Stack B elements
+//         if (stack_b)
+//         {
+//             data_b = (t_data *)stack_b->content;
+//             printf("{%d, %d}\n", data_b->index, data_b->number);
+//             stack_b = stack_b->next;
+//         }
+//         else
+//         {
+//             printf("\n");  // Add newline if stack_b is empty
+//         }
+//     }
+// }

@@ -6,7 +6,7 @@
 /*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:28:25 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/06/29 15:28:33 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/07/06 14:38:11 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,31 +71,6 @@ void	init_stack(int argc, char **argv, t_list **stack_a)
 	}
 	add_index(*stack_a);
 }
-
-// void	init_stack(int argc, char **argv, t_list **stack_a)
-// {
-// 	char	**nbr;
-// 	int		i;
-// 	int		curr_idx;
-
-// 	i = 1;
-// 	while (i < argc)
-// 	{
-// 		check_empty_argument(argv[i]);
-// 		nbr = ft_split(argv[i], ' ');
-// 		curr_idx = 0;
-// 		while (nbr[curr_idx])
-// 		{
-// 			if (nbr[curr_idx][0] == '\0')
-// 				cleanup_and_exit(nbr, curr_idx, stack_a);
-// 			add_number_to_stack(nbr[curr_idx], stack_a, nbr, curr_idx);
-// 			curr_idx++;
-// 		}
-// 		free_array(nbr, curr_idx);
-// 		i++;
-// 	}
-// 	add_index(*stack_a);
-// }
 
 int	main(int argc, char **argv)
 {
