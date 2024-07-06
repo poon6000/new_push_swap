@@ -6,7 +6,7 @@
 /*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:28:29 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/07/06 14:37:52 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/07/06 14:58:34 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ void	sort_five_elements(t_list **stack_a, t_list **stack_b)
 	while (*stack_b)
 		pa(stack_b, stack_a);
 }
-
 
 //debug
 // void print_stacks(t_list *stack_a, t_list *stack_b)
