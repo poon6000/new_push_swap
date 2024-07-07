@@ -6,11 +6,11 @@
 /*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:28:29 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/07/06 14:58:34 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/07/07 10:27:35 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../include/push_swap.h"
 
 void	handle_three_elements(t_list **stack, int first, int second, int third)
 {

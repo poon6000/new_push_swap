@@ -5,7 +5,7 @@ CFLAGS		= -Wall -Wextra -Werror -I$(INCDIR) -I$(LIBDIR) -g
 RM			= rm -f
 
 # Directories
-INCDIR		= includes
+INCDIR		= include
 LIBDIR		= libft
 SRCDIR		= src
 OBJDIR		= obj

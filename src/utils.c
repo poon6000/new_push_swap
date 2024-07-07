@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: intrauser <intrauser@student.42bangkok.    +#+  +:+       +#+        */
+/*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 15:08:13 by intrauser         #+#    #+#             */
-/*   Updated: 2024/06/25 15:16:28 by intrauser        ###   ########.fr       */
+/*   Updated: 2024/07/07 10:27:47 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../include/push_swap.h"
 
 void	update_pointers(t_list *stack, t_data **data_first, \
 		t_data **data_second, t_data **data_third)

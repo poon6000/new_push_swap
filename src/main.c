@@ -6,11 +6,11 @@
 /*   By: nsangnga <nsangnga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:28:25 by nsangnga          #+#    #+#             */
-/*   Updated: 2024/07/06 14:38:11 by nsangnga         ###   ########.fr       */
+/*   Updated: 2024/07/07 10:25:42 by nsangnga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../include/push_swap.h"
 
 void	cleanup_and_exit(char **nbr, t_list **stack_a)
 {
