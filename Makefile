@@ -34,7 +34,7 @@ all:		$(LIBFT) $(NAME)
 $(LIBFT):
 			$(MAKE) -C $(LIBDIR)
 
-# Rule for building the target executable
+# Compile target
 $(NAME): $(OBJ)
 			make -C $(LIBDIR)
 			$(CC) $(CFLAGS) $(OBJ) -L$(LIBDIR) -lft -o $(NAME)
